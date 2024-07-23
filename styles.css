@@ -1,0 +1,378 @@
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: url('fonts/Satoshi-Variable.ttf')  format('truetype'),
+         url('fonts/Satoshi-Variable.eot')  format('eot'),
+         url('fonts/Satoshi-Variable.woff') format('woff');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: Satoshi-Variable, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #fff3ca;
+}
+
+h1, h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 550;
+    margin-top: 32px;
+}
+
+#title {
+    animation: title-font-animation 3s ease-out;
+}
+
+p {
+    font-weight: 450;
+    line-height: 145%;
+}
+
+span {
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+strong {
+    font-weight: 750;
+}
+
+.caption {
+    font-weight: 350;
+    opacity: 70;
+    margin-top: 4px;
+}
+
+.credits {
+    font-size: .85rem;
+    font-weight: 350;
+    opacity: 70;
+    margin-top: 8px;
+}
+
+#popbusters .credits ~ .credits, #interactive .credits {
+    margin-top: -24px;
+}
+
+nav {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+    width: fit-content;
+    background-color: #fff3ca;
+    margin: 0px 10vw;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    opacity: .25;
+    transition: all .25s
+}
+
+nav li {
+    display: inline-block;
+    width: 100%;
+}
+
+nav a {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+    border: 1px black solid;
+    border-radius: 8px;
+    width: 7rem;
+    height: 100%;
+    transition: all .25s
+}
+
+nav:hover ul {
+    opacity: 1;
+}
+
+nav a:hover {
+    font-weight: 700;
+}
+
+.active {
+    font-weight: 700;
+    color: white;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 1;
+}
+
+article {
+    position: fixed;
+    left: calc(20vw + 7rem);
+    margin-right: 10vw;
+}
+
+p {
+    margin-top: 16px;
+}
+
+img {
+    width: 25vw;
+    margin-top: 32px;
+    border-radius: 32px;
+}
+
+.images {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.images img {
+    max-width: 240px;
+    border-radius: 16px;
+    margin: 0px;
+}
+
+#crous .images img {
+    border: rgba(0, 0, 0, .4) solid 2px;
+}
+
+article img {
+    width: 96px;
+    margin-bottom: 16px;
+}
+
+#container {
+    transform: translateX(100vw);
+    display: flex;
+    align-items: center;
+    padding: 0px 10vw 0px 0px;
+    height: 100%;
+}
+
+.content {
+    display: none;
+}
+
+.shown-content {
+    display: block;
+    margin: auto;
+    padding: 64px 0px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 16px 0px 32px 0px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 8px 16px;
+    border-radius: 32px;
+    transition: all .5s;
+}
+
+.link::after {
+    content: "";
+    display: inline-block;
+    background-image: url(img/icons/arrow-right.svg);
+    color: white;
+    height: 16px;
+    width: 16px;
+    margin-left: 6px;
+    transition: all .3s;
+}
+
+.link:hover {
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.link:hover::after {
+    transform: translateX(6px);
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 32px 0px;
+    border-radius: 32px;
+    aspect-ratio: 16/9;
+}
+
+.video__iframe {
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video__placeholder {
+	width: 100%;
+    position: absolute;
+}
+
+.video__youtube {
+    padding-bottom: 56.23%;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+	position: relative;
+    object-fit: cover;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.video__button {
+    background: none;
+	border: 0;
+	cursor: pointer;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	text-indent: -9999px;
+	top: 0;
+	transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	width: 100%;
+}
+
+.video__button:before {
+    width:100%;
+    height:100%;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: url(img/yt_icon_mono_light.png) no-repeat center center;
+    background-size: 10%; 
+    transition: all .2s;
+}
+
+.video__button:hover:before {
+    background: url(img/yt_icon_rgb.png) no-repeat center center;
+    background-size: 10%; 
+}
+
+.video img {
+    margin: 0px 0px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (max-width: 1000px) {
+
+    body {
+        flex-direction: column;
+        justify-content: start;
+        overflow: hidden;
+        position: relative;
+    }
+
+    nav {
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 1;
+        bottom: 0px;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        gap: 16px;
+        padding: 16px 0 64px 0;
+        overflow-x: auto;
+    }
+
+    ul p {
+        margin-top: 0;
+    }
+
+    nav ul {
+        opacity: .75;
+    }
+
+    nav ul {
+        margin: 0% 15%;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    img {
+        width: 50vw;
+    }
+
+    .images img {
+        width: 100%;
+    }
+
+    article {
+        padding: 10vw 10vw 32px 10vw;
+        margin-right: 0px;
+        left: 0px;
+    }
+
+    article img {
+        margin-bottom: 16px;
+    }
+
+    #container {
+        top: 10%;
+        align-items: start;
+        padding: 10vw 10vw 32px 10vw;
+        margin: 0px;
+    }
+
+    .shown-content {
+        padding: 0px 0px 128px 0px;
+    }
+
+}
+
+@keyframes title-font-animation {
+    0% {
+        font-weight: 300;
+    }
+
+    70% {
+        font-weight: 900;
+    }
+
+    100% {
+        font-weight: bold;
+    }
+}
